@@ -3,7 +3,7 @@ import Image from "next/image";
 
 function HeroSection() {
   return (
-    <section className="bg-amber-50 min-h-screen flex items-center justify-center px-4 py-12">
+    <section id="Hero" className="bg-white min-h-screen flex items-center justify-center px-4 py-12">
       <div className="max-w-screen-xl w-full flex flex-col-reverse md:flex-row items-center justify-between gap-10">
         
         {/* Left: Text + CTA */}
@@ -24,7 +24,7 @@ function HeroSection() {
             Create personalized cover letters in seconds with our AI-powered tool.
           </h3>
 
-          <button className="mt-6 text-white bg-blue-600 hover:bg-blue-700 transition-all font-semibold py-3 px-6 rounded-lg text-lg">
+          <button className="mt-6 text-white bg-blue-600 hover:cursor-pointer hover:bg-blue-700 transition-all font-semibold py-3 px-6 rounded-lg text-lg">
             Get Started Free
           </button>
         </div>
