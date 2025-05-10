@@ -50,11 +50,11 @@ function AuthModal({showAuthModal, setShowAuthModal}: {showAuthModal: boolean, s
         </>
       ) : authMode === "sign-in" ? (
         <div className="pt-4 ">
-          <SignIn afterSignInUrl="/dashboard" />
+          <SignIn forceRedirectUrl="/dashboard" routing="hash" />
         </div>
       ) : (
         <div className="pt-4">
-          <SignUp afterSignUpUrl="/dashboard" />
+          <SignUp forceRedirectUrl="/dashboard"/>
         </div>
       )}
     </div>
