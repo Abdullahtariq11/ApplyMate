@@ -1,32 +1,39 @@
-import { FolderIcon, PencilIcon } from "@heroicons/react/24/outline";
-import { HomeIcon } from "@heroicons/react/24/outline";
+"use client";
+import { FolderIcon, PencilIcon, HomeIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
-import React from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 function Sidebar() {
+  const pathname = usePathname();
+
+  const navItems = [
+    { href: "/dashboard", icon: <HomeIcon className="w-5 h-5" />, text: "Dashboard" },
+    { href: "/generate", icon: <PencilIcon className="w-5 h-5" />, text: "Generate" },
+    { href: "/history", icon: <FolderIcon className="w-5 h-5" />, text: "History" },
+  ];
+
   return (
-    <div className="bg-amber-50 border h-screen border-amber-950 flex flex-col gap-1">
-      <ul className="flex flex-col items-center justify-center">
-        <li className="flex flex-col items-center justify-center ">
-          <Image
-            src="/images/logo.png"
-            alt="ApplyMate Logo"
-            width={150}
-            height={150}
-          />
-        </li>
-        <li className="hover:cursor-pointer flex gap-1 flex-row hover:bg-amber-950 hover:text-white transition-all text-gray-700 text-2xl px-1 font-medium  py-2  rounded-lg">
-          <HomeIcon className="w-6 h-7 " />
-          <a href="/features">Dashboard</a>
-        </li>
-        <li className="hover:cursor-pointer flex gap-1 flex-row hover:bg-amber-950 hover:text-white transition-all text-gray-700 font-medium px-1 text-2xl py-2  rounded-lg">
-          <PencilIcon className="w-6 h-7" />
-          <a href="/generate">Generate</a>
-        </li>
-        <li className="hover:cursor-pointer flex gap-1 flex-row hover:bg-amber-950 hover:text-white transition-all text-gray-700 font-medium px-1 text-2xl py-2 rounded-lg">
-        <FolderIcon className="w-6 h-7 " />
-          <a href="/history">History</a>
-        </li>
+    <div className="bg-amber-50 border-r border-amber-200 h-full w-full px-4 py-6 shadow-sm">
+      <div className="flex flex-col items-center mb-8">
+        <Image src="/images/logo.png" alt="ApplyMate Logo" width={100} height={100} />
+      </div>
+      <ul className="flex flex-col gap-3">
+        {navItems.map(({ href, icon, text }) => (
+          <li key={href}>
+            <Link
+              href={href}
+              className={`flex items-center gap-3 px-4 py-2 rounded-lg text-sm font-medium transition-all ${
+                pathname === href
+                  ? "bg-amber-900 text-white"
+                  : "text-gray-700 hover:bg-amber-900 hover:text-white"
+              }`}
+            >
+              {icon}
+              {text}
+            </Link>
+          </li>
+        ))}
       </ul>
     </div>
   );
