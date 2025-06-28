@@ -2,11 +2,24 @@ import Sidebar from "@/Components/ui/Sidebar";
 import { SignOutButton } from "@clerk/nextjs";
 import React from "react";
 
+/**
+ * Renders the main dashboard page for the application.
+ *
+ * The dashboard includes:
+ * - A sidebar for navigation.
+ * - A header with the page title and a sign-out button.
+ * - A welcome message for the user.
+ * - A call-to-action button to create a new application.
+ * - A table displaying a list of applications with their status and creation date.
+ * - A footer button to view all applications.
+ *
+ * @returns The dashboard page layout as a React functional component.
+ */
 export default function DashboardPage() {
   return (
     <div className="flex min-h-screen bg-gray-50">
       {/* Sidebar */}
-      <aside className="w-1/5 bg-white border-r border-gray-200 ">
+      <aside className="w-auto bg-white border-r border-gray-200 ">
         <Sidebar />
       </aside>
 
