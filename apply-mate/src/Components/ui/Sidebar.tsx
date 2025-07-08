@@ -57,6 +57,7 @@ function Sidebar() {
   return (
     <div
       className={`
+        p-5
     fixed z-50
     bottom-0 left-0 right-0
     md:static
